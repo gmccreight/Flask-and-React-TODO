@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Deactivate the current virtual environment if it's active
+if [[ "$VIRTUAL_ENV" != "" ]]; then
+    deactivate
+fi
+
+# Remove the existing virtual environment
+rm -rf venv
+
+# Create a new virtual environment
+python3 -m venv venv
+
+# Activate the new virtual environment
+source venv/bin/activate
+
+# Install the updated requirements
+pip install -r requirements.txt
+
+# Run the Flask application
+python app.py
