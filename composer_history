@@ -1,0 +1,22 @@
+You are starting from scratch.
+
+Please make a new Flask and React application for a TODO app.  The purpose of this app is to serve as a toy example for how one might build a small app that uses both Flask and React along with several modern libraries.
+
+The libraries I want to use are Tailwind for CSS, Radix UI for simple components, and shadcn for more complex components with styling.
+
+I also want to use TypeScript instead of Vanilla JavaScript.
+
+Please do the simplest thing possible for the persistence within the Flask application backend.. like maybe a SQLlite database or even just files... we dont' need a fancy ORM solution... that part is not what I'm really interested in exploring with this application.  Rather, the main thing I want to focus on is how Flask and React (and the various component libraries work together).  Also, this is single user, so I don't care about authentication.
+
+For the frontend buidl stuff, maybe use vite?  But only if it seems like a good idea to you.
+
+make sure to include a README.md that explains how to install and run the application in development mode, and how to think about the frontend vs. the backend (do I need to have two separate things running, like a build script and also the Flask app... that kind of thing)
+
+Certainly! I'll create a simple Flask and React application for a TODO app using the libraries you've mentioned. I'll use Vite for the frontend build process as it's a great choice for modern React applications. Here's an outline of the project structure and the key files we'll create:
+md
+Let's start with the backend:
+Now, let's create the frontend:
+Now, let's create the necessary configuration files for the frontend:
+Finally, let's create a README.md file:
+This setup provides a simple Todo application using Flask for the backend and React for the frontend, with Tailwind CSS for styling, Radix UI for simple components, and shadcn for more complex components. The backend uses SQLite for persistence, which is simple and doesn't require any additional setup.
+To run the application, you'll need to start both the backend Flask server and the frontend development server. The README provides instructions on how to set up and run both parts of the application.
