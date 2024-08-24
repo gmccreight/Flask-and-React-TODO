@@ -45,15 +45,11 @@ The backend will be running on `http://localhost:5000`.
 2. Install the required packages:
    ```
    npm install
-   # or
-   yarn install
    ```
 
 3. Start the development server:
    ```
    npm start
-   # or
-   yarn start
    ```
 
 The frontend will be running on `http://localhost:3000`.
@@ -79,8 +75,6 @@ To build the frontend for production:
 2. Run the build command:
    ```
    npm run build
-   # or
-   yarn build
    ```
 
 This will create a `dist` directory with the compiled and optimized frontend assets. You can then serve these static files using a web server of your choice, or integrate them with your Flask application for a combined deployment.
