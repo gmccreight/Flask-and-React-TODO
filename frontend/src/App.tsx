@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoList from './components/TodoList';
-import { Button } from '@radix-ui/react-button';
-import { Input } from '@/components/ui/input';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 interface Todo {
   id: number;
