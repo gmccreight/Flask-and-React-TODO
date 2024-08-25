@@ -21,18 +21,7 @@ and shadcn to generate more complex components.
 
 2. Create a virtual environment and activate it:
    ```
-   python -m venv venv
-   source venv/bin/activate
-   ```
-
-3. Install the required packages:
-   ```
-   pip install -r requirements.txt
-   ```
-
-4. Run the Flask application:
-   ```
-   python app.py
+   ./run_in_venv
    ```
 
 The backend will be running on `http://localhost:5002`.
