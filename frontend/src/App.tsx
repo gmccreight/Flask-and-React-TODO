@@ -57,7 +57,7 @@ const App: React.FC = () => {
         <Input
           type="text"
           value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTodo(e.target.value)}
           placeholder="Add a new todo"
           className="flex-grow mr-2"
         />
