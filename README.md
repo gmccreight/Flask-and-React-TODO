@@ -1,12 +1,14 @@
 # Todo App with Flask and React
 
-This is a simple Todo application built with Flask (backend) and React (frontend). It uses Tailwind CSS for styling, Radix UI for simple components, and shadcn for more complex components.
+This is a simple Todo application built with Flask (backend) and React
+(frontend). It uses Tailwind CSS for styling, Radix UI for simple components,
+and shadcn for more complex components.
 
 ## Prerequisites
 
 - Python 3.7+
 - Node.js 14+
-- npm or yarn
+- npm
 
 ## Setup
 
@@ -20,7 +22,7 @@ This is a simple Todo application built with Flask (backend) and React (frontend
 2. Create a virtual environment and activate it:
    ```
    python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   source venv/bin/activate
    ```
 
 3. Install the required packages:
