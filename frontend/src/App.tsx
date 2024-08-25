@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TodoList from './components/TodoList';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
-interface Todo {
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import { Todo } from './types/todo';
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
