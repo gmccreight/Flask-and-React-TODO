@@ -14,7 +14,7 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete }) => {
   return (
     <div className="space-y-4">
       {todos.map((todo) => (
-        <Card key={todo.id}>
+        <Card key={todo.id} className="bg-slate-50 shadow-md">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Checkbox.Root
