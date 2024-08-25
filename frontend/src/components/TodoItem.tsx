@@ -21,7 +21,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
       <Checkbox.Root
         className="flex h-4 w-4 items-center justify-center rounded border border-primary"
         checked={todo.completed}
-        onCheckedChange={(checked) => onToggle(todo.id, checked as boolean)}
+        onCheckedChange={(checked: boolean) => onToggle(todo.id, checked)}
       >
         <Checkbox.Indicator className="text-primary">
           {/* You can add a checkmark icon here */}
