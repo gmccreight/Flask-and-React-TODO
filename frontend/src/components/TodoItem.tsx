@@ -2,12 +2,7 @@ import React from 'react';
 import * as Checkbox from '@radix-ui/react-checkbox';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-interface Todo {
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import { Todo } from '@/types/todo';
 
 interface TodoItemProps {
   todo: Todo;
