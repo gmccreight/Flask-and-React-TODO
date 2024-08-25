@@ -2,7 +2,7 @@
 
 This is a simple Todo application built with Flask (backend) and React
 (frontend). It uses Tailwind CSS for styling, Radix UI for simple components,
-and shadcn for more complex components.
+and shadcn to generate more complex components.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ and shadcn for more complex components.
    python app.py
    ```
 
-The backend will be running on `http://localhost:5000`.
+The backend will be running on `http://localhost:5002`.
 
 ### Frontend
 
@@ -54,7 +54,25 @@ The backend will be running on `http://localhost:5000`.
    npm start
    ```
 
-The frontend will be running on `http://localhost:3000`.
+The frontend will be running on `http://localhost:3002`.
+
+### Frontend with Tailwind CSS
+
+To add additional shadcn components, run:
+
+```
+npx shadcn-ui@latest init
+```
+
+That adds the `frontend/components.json` file with the options you chose.
+
+Then you can add a component, like how we added a card, to the frontend by running:
+
+```
+npx shadcn-ui@latest add card
+```
+
+Which added a card component to the `frontend/src/components/ui/card.tsx` file.
 
 ## Development
 
@@ -81,6 +99,11 @@ To build the frontend for production:
 
 This will create a `dist` directory with the compiled and optimized frontend assets. You can then serve these static files using a web server of your choice, or integrate them with your Flask application for a combined deployment.
 
+To view the production build in your browser, run:
+```
+npm run preview
+```
+
 ## Project Structure
 
 - `backend/`: Contains the Flask application and SQLite database
@@ -89,7 +112,6 @@ This will create a `dist` directory with the compiled and optimized frontend ass
     - `components/`: React components
     - `App.tsx`: Main application component
     - `index.tsx`: Entry point for the React application
-  - `public/`: Public assets
   - `package.json`: Frontend dependencies and scripts
   - `tsconfig.json`: TypeScript configuration
   - `vite.config.ts`: Vite configuration
