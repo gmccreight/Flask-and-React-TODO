@@ -3,7 +3,7 @@ from flask_cors import CORS
 from database import get_todos, add_todo, update_todo, delete_todo
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3002"}})
 
 @app.route('/todos', methods=['GET'])
 def get_all_todos():
@@ -24,4 +24,4 @@ def remove_todo(todo_id):
     return jsonify(delete_todo(todo_id))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='localhost', port=5002)

@@ -18,14 +18,14 @@ const App: React.FC = () => {
   }, []);
 
   const fetchTodos = async () => {
-    const response = await fetch('http://localhost:5000/todos');
+    const response = await fetch('http://localhost:5002/todos');
     const data = await response.json();
     setTodos(data);
   };
 
   const addTodo = async () => {
     if (newTodo.trim() === '') return;
-    const response = await fetch('http://localhost:5000/todos', {
+    const response = await fetch('http://localhost:5002/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTodo }),
@@ -36,7 +36,7 @@ const App: React.FC = () => {
   };
 
   const toggleTodo = async (id: number, completed: boolean) => {
-    const response = await fetch(`http://localhost:5000/todos/${id}`, {
+    const response = await fetch(`http://localhost:5002/todos/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed }),
@@ -46,7 +46,7 @@ const App: React.FC = () => {
   };
 
   const deleteTodo = async (id: number) => {
-    await fetch(`http://localhost:5000/todos/${id}`, { method: 'DELETE' });
+    await fetch(`http://localhost:5002/todos/${id}`, { method: 'DELETE' });
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
