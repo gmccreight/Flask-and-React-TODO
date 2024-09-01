@@ -72,6 +72,15 @@ To work on this application, you'll need to have both the backend and frontend r
 
 The frontend will proxy API requests to the backend, so you can develop both parts of the application seamlessly.
 
+## Testing
+
+To run the tests in the frontend directory, run:
+```
+npm test
+```
+
+There's not much to test, but it shows how to test a React application.
+
 ## Building for Production
 
 To build the frontend for production:
