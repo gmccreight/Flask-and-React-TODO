@@ -1,27 +1,48 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import List
 from database import get_todos, add_todo, update_todo, delete_todo
 
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3002"}})
+app = FastAPI()
 
-@app.route('/todos', methods=['GET'])
-def get_all_todos():
-    return jsonify(get_todos())
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3002"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.route('/todos', methods=['POST'])
-def create_todo():
-    todo = request.json
-    return jsonify(add_todo(todo['title']))
+class Todo(BaseModel):
+    title: str
 
-@app.route('/todos/<int:todo_id>', methods=['PUT'])
-def update_todo_status(todo_id):
-    todo = request.json
-    return jsonify(update_todo(todo_id, todo['completed']))
+class TodoUpdate(BaseModel):
+    completed: bool
 
-@app.route('/todos/<int:todo_id>', methods=['DELETE'])
-def remove_todo(todo_id):
-    return jsonify(delete_todo(todo_id))
+@app.get("/todos", response_model=List[dict])
+async def get_all_todos():
+    return get_todos()
 
-if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=5002)
+@app.post("/todos", response_model=dict)
+async def create_todo(todo: Todo):
+    return add_todo(todo.title)
+
+@app.put("/todos/{todo_id}", response_model=dict)
+async def update_todo_status(todo_id: int, todo: TodoUpdate):
+    updated_todo = update_todo(todo_id, todo.completed)
+    if updated_todo is None:
+        raise HTTPException(status_code=404, detail="Todo not found")
+    return updated_todo
+
+@app.delete("/todos/{todo_id}", response_model=dict)
+async def remove_todo(todo_id: int):
+    deleted_todo = delete_todo(todo_id)
+    if deleted_todo is None:
+        raise HTTPException(status_code=404, detail="Todo not found")
+    return deleted_todo
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="localhost", port=5002)

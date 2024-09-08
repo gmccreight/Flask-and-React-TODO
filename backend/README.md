@@ -1,6 +1,6 @@
 ## Backend
 
-It uses Flask and FastAPI to build the backend.
+This is the backend for the Todo application, built with FastAPI
 
 ### Prerequisites
 
@@ -8,9 +8,13 @@ It uses Flask and FastAPI to build the backend.
 
 ### Setup
 
-1. Create a virtual environment and activate it:
-   ```
-   ./run_in_venv
-   ```
+The `./run_in_env` script will create a virtual environment, install the dependencies, and run the application.
 
-The backend will be running on `http://localhost:5002`, but it is an API, so you can't really surf it.
+The server will start on `http://localhost:5002`.
+
+## API Endpoints
+
+- GET /todos: Retrieve all todos
+- POST /todos: Create a new todo
+- PUT /todos/{todo_id}: Update a todo's status
+- DELETE /todos/{todo_id}: Delete a todo
