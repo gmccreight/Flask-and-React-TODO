@@ -24,7 +24,7 @@ and shadcn to generate more complex components.
    ./run_in_venv
    ```
 
-The backend will be running on `http://localhost:5002`.
+The backend will be running on `http://localhost:5002`, but it is an API, so you can't really surf it.
 
 ### Frontend
 
