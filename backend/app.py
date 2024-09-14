@@ -2,10 +2,10 @@ from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean
+
+from sqlalchemy import create_engine, Column, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
-from datetime import datetime
 
 # Database configuration
 SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@db/todo_app"
