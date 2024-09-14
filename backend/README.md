@@ -2,13 +2,13 @@
 
 This is the backend for the Todo application, built with FastAPI
 
-### Prerequisites
-
-- Python 3.7+
-
 ### Setup
 
-The `./run_in_env` script will create a virtual environment, install the dependencies, and run the application.
+The setup was taken care of by the .devcontainer
+
+### Running
+
+`python app.py`
 
 The server will start on `http://localhost:5002`.
 

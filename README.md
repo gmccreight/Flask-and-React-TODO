@@ -1,15 +1,16 @@
-# Todo App with Flask and React
+# Todo App with React and FastAPI
 
 This is a simple Todo application built with:
 
-* Flask (backend)
 * React (frontend)
+* FastAPI (backend)
 
 The documentation for each part is in the respective folder.
 
 ## Development
 
-To work on this application, you'll need to have both the backend and frontend running simultaneously:
+This uses a `.devcontainer` to provide a containerized development environment from within Cursor.
 
-1. Start the backend Flask server in one terminal window.
-2. Start the frontend development server in another terminal window.
+When Cursor starts up, it will start a container from the `.devcontainer/Dockerfile` and mount the current directory as a volume inside the container.
+
+When you use terminal inside Cursor, you're actually using a shell inside the container.
