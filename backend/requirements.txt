@@ -1,3 +1,8 @@
-fastapi==0.103.2
+fastapi[all]==0.103.2
+sqlalchemy==2.0.21
+psycopg2-binary==2.9.7
 uvicorn==0.23.2
 pydantic==2.4.2
+
+# For database migrations
+alembic==1.12.0
