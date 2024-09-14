@@ -49,12 +49,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/todos", response_model=List[dict])
+# Create a sub-application for /api
+api_app = FastAPI()
+app.mount("/api", api_app)
+
+@api_app.get("/todos", response_model=List[dict])
 async def get_all_todos(db: Session = Depends(get_db)):
     todos = db.query(Todo).all()
     return [{"id": todo.id, "title": todo.title, "completed": todo.completed} for todo in todos]
 
-@app.post("/todos", response_model=dict)
+@api_app.post("/todos", response_model=dict)
 async def create_todo(todo: TodoCreate, db: Session = Depends(get_db)):
     db_todo = Todo(title=todo.title)
     db.add(db_todo)
@@ -62,7 +66,7 @@ async def create_todo(todo: TodoCreate, db: Session = Depends(get_db)):
     db.refresh(db_todo)
     return {"id": db_todo.id, "title": db_todo.title, "completed": db_todo.completed}
 
-@app.put("/todos/{todo_id}", response_model=dict)
+@api_app.put("/todos/{todo_id}", response_model=dict)
 async def update_todo_status(todo_id: int, todo: TodoUpdate, db: Session = Depends(get_db)):
     db_todo = db.query(Todo).filter(Todo.id == todo_id).first()
     if db_todo is None:
@@ -71,7 +75,7 @@ async def update_todo_status(todo_id: int, todo: TodoUpdate, db: Session = Depen
     db.commit()
     return {"id": db_todo.id, "title": db_todo.title, "completed": db_todo.completed}
 
-@app.delete("/todos/{todo_id}", response_model=dict)
+@api_app.delete("/todos/{todo_id}", response_model=dict)
 async def remove_todo(todo_id: int, db: Session = Depends(get_db)):
     db_todo = db.query(Todo).filter(Todo.id == todo_id).first()
     if db_todo is None:
