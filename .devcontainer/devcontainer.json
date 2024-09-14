@@ -12,6 +12,5 @@
             ]
         }
     },
-    "postCreateCommand": "bash /workspace/backend/run_in_venv",
     "remoteUser": "vscode"
 }
