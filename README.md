@@ -15,6 +15,9 @@ When Cursor starts up, it will start a container from the `.devcontainer/Dockerf
 
 When you use terminal inside Cursor, you're actually using a shell inside the container.
 
+The `./vscode/tasks.json` file contains two tasks that automatically run the frontend and backend servers
+when this project opens.  You will see their output in the terminal window inside Cursor.
+
 ## TODO
 
 - [ ] Get deployment working on Vercel
