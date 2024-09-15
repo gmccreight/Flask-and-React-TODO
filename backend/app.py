@@ -86,4 +86,4 @@ async def remove_todo(todo_id: int, db: Session = Depends(get_db)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="localhost", port=5002)
+    uvicorn.run("app:app", host="localhost", port=5002, reload=True)
